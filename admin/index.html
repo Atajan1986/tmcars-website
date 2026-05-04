@@ -8,18 +8,5 @@
   <script src="https://unpkg.com/decap-cms@3.12.2/dist/decap-cms.js"></script>
 </head>
 <body>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.open("login");
-        }
-      });
-
-      window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
-    }
-  </script>
 </body>
 </html>
