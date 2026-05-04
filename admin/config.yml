@@ -12,24 +12,18 @@ collections:
     create: true
     slug: "{{year}}-{{make}}-{{model}}-{{vin}}"
     fields:
-      - { label: "Title", name: "title", widget: "string", hint: "Example: 2017 Hyundai Elantra SE" }
-
-      - { label: "Year", name: "year", widget: "string", hint: "Example: 2017" }
-      - { label: "Make", name: "make", widget: "string", hint: "Example: Hyundai" }
-      - { label: "Model", name: "model", widget: "string", hint: "Example: Elantra" }
-
-      - { label: "Mileage", name: "mileage", widget: "string", hint: "Example: 125000 miles" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Make", name: "make", widget: "string" }
+      - { label: "Model", name: "model", widget: "string" }
+      - { label: "Mileage", name: "mileage", widget: "string" }
       - { label: "VIN", name: "vin", widget: "string" }
-      - { label: "Price", name: "price", widget: "string", hint: "Example: 7995" }
-
+      - { label: "Price", name: "price", widget: "string" }
       - { label: "Main Photo", name: "image", widget: "image", required: false }
-
       - label: "More Photos"
         name: "gallery"
         widget: "list"
         required: false
-        summary: "{{fields.photo}}"
         fields:
           - { label: "Photo", name: "photo", widget: "image" }
-
       - { label: "Description", name: "body", widget: "text", required: false }
