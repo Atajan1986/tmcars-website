@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TMCARS LLC Inventory</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: Arial, sans-serif; background: #f4f5f7; color: #111; }
-    header { background: #07111f; color: white; padding: 18px 7%; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { margin: 0; font-size: 26px; }
-    header a { color: white; margin-left: 18px; text-decoration: none; font-weight: bold; }
-    .hero { background: #0f172a; color: white; padding: 60px 7%; }
-    .hero h2 { font-size: 42px; margin: 0 0 12px; }
-    .hero p { font-size: 18px; color: #d1d5db; }
-    section { padding: 45px 7%; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-    .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,.12); }
-    .card img { width: 100%; height: 230px; object-fit: cover; background: #ddd; }
-    .card-body { padding: 20px; }
-    .card h3 { margin: 0 0 12px; font-size: 22px; }
-    .price { font-size: 24px; font-weight: bold; margin: 12px 0; }
-    .btn { display: block; text-align: center; background: #07111f; color: white; padding: 12px; border-radius: 8px; cursor: pointer; margin-top: 12px; }
-    footer { background: #07111f; color: white; text-align: center; padding: 25px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TMCARS LLC | Inventory</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#111}
+header{background:#07111f;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+header h1{margin:0;font-size:28px}
+nav a{color:white;margin-left:20px;text-decoration:none;font-weight:bold}
+.hero{background:#0f172a;color:white;padding:55px 7%}
+.hero h2{font-size:42px;margin:0 0 12px}
+.hero p{color:#d1d5db;font-size:18px}
+section{padding:45px 7%}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,.12)}
+.card img{width:100%;height:230px;object-fit:cover;background:#ddd}
+.card-body{padding:20px}
+.card h3{margin:0 0 10px;font-size:22px}
+.price{font-size:24px;font-weight:bold;margin:12px 0}
+.btn{background:#07111f;color:white;padding:12px;border-radius:8px;text-align:center;cursor:pointer;font-weight:bold}
+footer{background:#07111f;color:white;text-align:center;padding:25px}
 
-    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:999; padding:20px; overflow:auto; }
-    .modal-box { background:white; max-width:1000px; margin:auto; border-radius:16px; padding:25px; }
-    .close { float:right; font-size:34px; cursor:pointer; font-weight:bold; }
-    .big-photo { width:100%; max-height:560px; object-fit:contain; background:#111; border-radius:12px; }
-    .thumbs { display:flex; gap:10px; overflow-x:auto; margin-top:14px; }
-    .thumbs img { width:100px; height:75px; object-fit:cover; border-radius:8px; cursor:pointer; }
-    .details { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:20px; }
-    .detail { background:#f3f4f6; padding:12px; border-radius:8px; }
-  </style>
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999;padding:20px;overflow:auto}
+.modal-box{background:white;max-width:1000px;margin:auto;border-radius:16px;padding:25px}
+.close{float:right;font-size:36px;cursor:pointer;font-weight:bold}
+.big-photo{width:100%;max-height:560px;object-fit:contain;background:#111;border-radius:12px}
+.thumbs{display:flex;gap:10px;overflow-x:auto;margin-top:14px}
+.thumbs img{width:100px;height:75px;object-fit:cover;border-radius:8px;cursor:pointer}
+.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:20px}
+.detail{background:#f3f4f6;padding:12px;border-radius:8px}
+</style>
 </head>
 
 <body>
@@ -73,23 +73,23 @@
 <script>
 let carsData = [];
 
-function money(value) {
-  if (!value) return "Call for price";
+function money(value){
+  if(!value) return "Call for price";
   return "$" + Number(value).toLocaleString();
 }
 
-function getPhotos(car) {
+function getPhotos(car){
   return car.Attachments || car.Photos || car.Images || [];
 }
 
-async function loadCars() {
+async function loadCars(){
   const container = document.getElementById("cars");
 
-  try {
+  try{
     const res = await fetch("/.netlify/functions/cars");
     const data = await res.json();
 
-    if (!data.records || data.records.length === 0) {
+    if(!data.records || data.records.length === 0){
       container.innerHTML = "<p>No vehicles listed yet.</p>";
       return;
     }
@@ -97,7 +97,7 @@ async function loadCars() {
     carsData = data.records.map(r => r.fields);
     container.innerHTML = "";
 
-    carsData.forEach((car, index) => {
+    carsData.forEach((car,index)=>{
       const photos = getPhotos(car);
       const firstPhoto = photos.length ? photos[0].url : "";
 
@@ -107,7 +107,7 @@ async function loadCars() {
       card.innerHTML = `
         ${firstPhoto ? `<img src="${firstPhoto}" alt="Vehicle photo">` : `<img alt="No photo">`}
         <div class="card-body">
-          <h3>${car.Make || ""} ${car.Model || ""}</h3>
+          <h3>${car.Title || ""} ${car.Make || ""} ${car.Model || ""}</h3>
           <p><b>Year:</b> ${car.Year || ""}</p>
           <p><b>Mileage:</b> ${car.Mileage ? Number(car.Mileage).toLocaleString() + " miles" : ""}</p>
           <p><b>VIN:</b> ${car.VIN || ""}</p>
@@ -119,18 +119,19 @@ async function loadCars() {
       container.appendChild(card);
     });
 
-  } catch (e) {
-    container.innerHTML = "<p>Error loading cars. Check Netlify variables and Airtable setup.</p>";
+  }catch(e){
+    container.innerHTML = "<p>Error loading cars. Check Netlify variables.</p>";
   }
 }
 
-function openCar(index) {
+function openCar(index){
   const car = carsData[index];
   const photos = getPhotos(car);
   const firstPhoto = photos.length ? photos[0].url : "";
 
   document.getElementById("modalContent").innerHTML = `
-    <h2>${car.Make || ""} ${car.Model || ""}</h2>
+    <h2>${car.Title || ""} ${car.Make || ""} ${car.Model || ""}</h2>
+
     ${firstPhoto ? `<img id="bigPhoto" class="big-photo" src="${firstPhoto}">` : "<p>No photos.</p>"}
 
     <div class="thumbs">
@@ -153,7 +154,7 @@ function openCar(index) {
   document.getElementById("modal").style.display = "block";
 }
 
-function closeModal() {
+function closeModal(){
   document.getElementById("modal").style.display = "none";
 }
 
