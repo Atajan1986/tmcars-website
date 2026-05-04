@@ -3,213 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TMCARS LLC | Used Cars & Auto Repair</title>
+<title>TMCARS LLC</title>
+
+<script src="https://upload-widget.cloudinary.com/global/all.js"></script>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#111827}
-a{text-decoration:none}
-header{background:#07111f;color:white;padding:14px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
-.logo{display:flex;align-items:center;gap:14px;color:white;font-weight:800}
-.logo img{width:62px;height:62px;object-fit:cover;border-radius:12px;background:white}
-.logo small{color:#d1d5db}
-nav a{color:white;margin-left:22px;font-weight:700}
-.hero{background:linear-gradient(rgba(7,17,31,.82),rgba(7,17,31,.9)),url("images/logo.jpg") center/cover;color:white;padding:90px 7%}
-.hero h1{font-size:54px;max-width:900px;margin:0 0 20px}
-.hero p{font-size:21px;max-width:760px;color:#e5e7eb}
-.btn{display:inline-block;background:#e8b94b;color:#07111f;padding:14px 23px;border-radius:10px;font-weight:800;margin-top:18px}
-section{padding:55px 7%}
-h2{font-size:38px;margin:0 0 10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:30px}
-.card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)}
-.card img{width:100%;height:230px;object-fit:cover;background:#ddd}
-.card-body{padding:22px}
-.card h3{font-size:23px;margin:0 0 12px}
-.info{margin:6px 0;color:#4b5563}
-.price{font-size:25px;font-weight:900;margin:14px 0;color:#111827}
-.view{background:#07111f;color:white;padding:12px;border-radius:9px;display:block;text-align:center;font-weight:800;margin-top:15px;cursor:pointer}
-.light{background:white}
-.contact-box{background:white;border-radius:18px;padding:28px;box-shadow:0 8px 25px rgba(0,0,0,.08);max-width:800px}
-.contact-box p{font-size:18px}
-footer{background:#07111f;color:white;text-align:center;padding:30px;font-weight:700}
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
 
-.modal{display:none;position:fixed;z-index:100;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.82);overflow:auto;padding:30px}
-.modal-box{background:white;max-width:1000px;margin:auto;border-radius:18px;overflow:hidden}
-.close{float:right;font-size:34px;font-weight:bold;cursor:pointer;margin:15px 22px}
-.modal-content{padding:28px;clear:both}
-.big-photo{width:100%;max-height:560px;object-fit:contain;background:#111;border-radius:14px}
-.thumbs{display:flex;gap:10px;overflow-x:auto;margin-top:15px}
-.thumbs img{width:110px;height:80px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid #ddd}
-.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0}
-.detail{background:#f3f4f6;padding:14px;border-radius:10px}
-.call{display:inline-block;background:#e8b94b;color:#07111f;padding:14px 24px;border-radius:10px;font-weight:900}
+.header {
+  background: #111;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-@media(max-width:700px){
-  nav{display:none}
-  .hero h1{font-size:36px}
-  .hero p{font-size:18px}
-  .logo img{width:50px;height:50px}
+.header img {
+  height: 50px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.car {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.main-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.gallery {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.gallery img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button {
+  background: #111;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <a class="logo" href="#">
-    <img src="images/logo.jpg" alt="TMCARS Logo">
-    <div>TMCARS LLC<br><small>Used Cars & Auto Repair</small></div>
-  </a>
-  <nav>
-    <a href="#inventory">Inventory</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <h1>Quality Used Cars & Professional Auto Repair</h1>
-  <p>Welcome to TMCARS LLC. We provide reliable used vehicles, diagnostics, mechanical repair, and honest automotive service in Crescent, Pennsylvania.</p>
-  <a class="btn" href="tel:7248886688">Call Now</a>
+<div class="header">
+  <div>TMCARS LLC</div>
+  <button onclick="openUploader()">Upload Photos</button>
 </div>
 
-<section id="inventory">
-  <h2>Current Inventory</h2>
-  <p>Browse available vehicles. Click “View Details” to see photos and vehicle information.</p>
-  <div id="cars" class="grid"></div>
-</section>
-
-<section id="services" class="light">
-  <h2>Services</h2>
-  <p>Used car sales, diagnostics, maintenance, engine repair, transmission service, brakes, suspension, hybrid diagnostics, and pre-purchase inspections.</p>
-</section>
-
-<section id="contact">
-  <h2>Contact Us</h2>
-  <div class="contact-box">
-    <p><b>Phone:</b> <a href="tel:7248886688">724-888-6688</a></p>
-    <p><b>Email:</b> <a href="mailto:tmcars.pa@gmail.com">tmcars.pa@gmail.com</a></p>
-    <p><b>Address:</b> 28 McGovern Blvd, Crescent, PA 15046</p>
-  </div>
-</section>
-
-<footer>© TMCARS LLC — Used Cars & Auto Repair</footer>
-
-<div id="modal" class="modal">
-  <div class="modal-box">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <div id="modalContent" class="modal-content"></div>
-  </div>
-</div>
+<div class="container" id="cars"></div>
 
 <script>
-const repo="Atajan1986/tmcars-website";
-const box=document.getElementById("cars");
-let allCars=[];
+let cars = [];
 
-function parse(text){
-  const m=text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)/);
-  if(!m)return{};
-  const d={};
-  m[1].split("\n").forEach(line=>{
-    const i=line.indexOf(":");
-    if(i>-1){
-      const k=line.slice(0,i).trim();
-      let v=line.slice(i+1).trim().replace(/^["']|["']$/g,"");
-      d[k]=v;
+function openUploader() {
+  cloudinary.openUploadWidget({
+    cloudName: 'dnmq18pmn',
+    uploadPreset: 'tmcars_upload',
+    multiple: true,
+    maxFiles: 20
+  }, (error, result) => {
+
+    if (!error && result.event === "success") {
+
+      let url = result.info.secure_url;
+
+      if (cars.length === 0) {
+        cars.push({
+          images: []
+        });
+      }
+
+      cars[0].images.push(url);
+
+      renderCars();
     }
+
   });
-  d.body=m[2]||"";
-  return d;
 }
 
-function img(p){
-  if(!p)return "";
-  if(p.startsWith("http"))return p;
-  return p.startsWith("/")?p:"/"+p;
-}
+function renderCars() {
+  let html = "";
 
-function money(p){
-  if(!p)return "Call for price";
-  return String(p).includes("$") ? p : "$"+p;
-}
+  cars.forEach((car, index) => {
 
-async function loadCars(){
-  try{
-    const r=await fetch(`https://api.github.com/repos/${repo}/contents/cars?ref=main`);
-    const files=await r.json();
-    const cars=files.filter(f=>f.name.endsWith(".md"));
-    box.innerHTML="";
-    if(!cars.length){box.innerHTML="<p>No vehicles listed yet.</p>";return;}
+    let main = car.images[0];
 
-    for(const f of cars){
-      const t=await fetch(f.download_url).then(r=>r.text());
-      const c=parse(t);
-      c.file=f.name;
-      allCars.push(c);
-    }
-
-    allCars.forEach((c,i)=>{
-      box.innerHTML+=`
-      <div class="card">
-        ${c.image ? `<img src="${img(c.image)}" alt="${c.title||'Vehicle'}">` : `<img alt="No photo">`}
-        <div class="card-body">
-          <h3>${c.title||"Vehicle"}</h3>
-          <p class="info"><b>Year:</b> ${c.year||"N/A"}</p>
-          <p class="info"><b>Mileage:</b> ${c.mileage||"Call"}</p>
-          <p class="info"><b>VIN:</b> ${c.vin||"Call"}</p>
-          <p class="price">${money(c.price)}</p>
-          <div class="view" onclick="openCar(${i})">View Details</div>
+    html += `
+      <div class="car">
+        <img src="${main}" class="main-img" id="main-${index}">
+        
+        <div class="gallery">
+          ${car.images.map(img => `
+            <img src="${img}" onclick="changeImage(${index}, '${img}')">
+          `).join("")}
         </div>
-      </div>`;
-    });
 
-  }catch(e){
-    box.innerHTML="<p>Inventory loading error. Please try again later.</p>";
-  }
+        <button>Call About This Car</button>
+      </div>
+    `;
+  });
+
+  document.getElementById("cars").innerHTML = html;
 }
 
-function getPhotos(c){
-  let photos=[];
-  if(c.image) photos.push(img(c.image));
-  if(c.gallery){
-    const matches=[...String(c.gallery).matchAll(/photo:\s*(.+)/g)];
-    matches.forEach(m=>photos.push(img(m[1].trim().replace(/^["']|["']$/g,""))));
-  }
-  return photos;
+function changeImage(index, img) {
+  document.getElementById("main-" + index).src = img;
 }
-
-function openCar(i){
-  const c=allCars[i];
-  const photos=getPhotos(c);
-  const main=photos[0]||"";
-  document.getElementById("modalContent").innerHTML=`
-    <h2>${c.title||"Vehicle"}</h2>
-    ${main ? `<img id="bigPhoto" class="big-photo" src="${main}">` : ""}
-    <div class="thumbs">
-      ${photos.map(p=>`<img src="${p}" onclick="document.getElementById('bigPhoto').src='${p}'">`).join("")}
-    </div>
-
-    <div class="details">
-      <div class="detail"><b>Year</b><br>${c.year||"N/A"}</div>
-      <div class="detail"><b>Make</b><br>${c.make||"N/A"}</div>
-      <div class="detail"><b>Model</b><br>${c.model||"N/A"}</div>
-      <div class="detail"><b>Mileage</b><br>${c.mileage||"Call"}</div>
-      <div class="detail"><b>VIN</b><br>${c.vin||"Call"}</div>
-      <div class="detail"><b>Price</b><br>${money(c.price)}</div>
-    </div>
-
-    <p>${c.body||""}</p>
-    <a class="call" href="tel:7248886688">Call About This Car</a>
-  `;
-  document.getElementById("modal").style.display="block";
-}
-
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-
-loadCars();
 </script>
 
 </body>
