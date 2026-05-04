@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Atajan1986/tmcars-website
   branch: main
 
 media_folder: "images/uploads"
