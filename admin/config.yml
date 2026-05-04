@@ -1,47 +1,18 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: git-gateway
+  branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "cars"
-    label: "Cars"
-    folder: "cars"
-    create: true
-    slug: "{{year}}-{{make}}-{{model}}"
-    fields:
-      - label: "Status"
-        name: "status"
-        widget: "select"
-        options: ["Available", "Pending", "Sold", "Coming Soon"]
-        default: "Available"
-
-      - label: "Year"
-        name: "year"
-        widget: "select"
-        options: ["2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015"]
-
-      - label: "Make"
-        name: "make"
-        widget: "select"
-        options: ["Toyota", "Honda", "Nissan", "Hyundai", "Kia", "Ford", "BMW", "Mercedes-Benz"]
-
-      - { label: "Model", name: "model", widget: "string" }
-      - { label: "VIN", name: "vin", widget: "string" }
-      - { label: "Mileage", name: "mileage", widget: "number" }
-      - { label: "Price", name: "price", widget: "number" }
-      - { label: "Main Photo", name: "image", widget: "image" }
-
-      - label: "More Photos"
-        name: "gallery"
-        widget: "list"
-        required: false
-        field:
-          label: "Photo"
-          name: "photo"
-          widget: "image"
-
-      - { label: "Video Link", name: "video_url", widget: "string", required: false }
-      - { label: "Description", name: "body", widget: "text" }
+  - name: "cars"
+    label: "Cars"
+    folder: "cars"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Description", name: "body", widget: "text", required: false }
