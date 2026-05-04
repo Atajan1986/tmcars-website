@@ -1,146 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TMCARS LLC | Used Cars & Auto Repair in Crescent, PA</title>
-  <meta name="description" content="TMCARS LLC offers used car sales, diagnostics, and auto repair services in Crescent, Pennsylvania." />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TMCARS LLC | Used Cars & Auto Repair</title>
+  <style>
+    body { margin:0; font-family:Arial,sans-serif; background:#f5f6f8; color:#111827; }
+    header { background:#07111f; color:white; padding:18px 8%; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-weight:bold; font-size:22px; }
+    .logo span { background:#e9b949; color:#07111f; padding:12px; border-radius:12px; margin-right:10px; }
+    nav a { color:white; margin-left:20px; text-decoration:none; }
+    .hero { background:#07111f; color:white; padding:70px 8%; }
+    .hero h1 { font-size:52px; max-width:800px; }
+    .hero p { font-size:22px; max-width:700px; color:#d1d5db; }
+    .btn { background:#e9b949; color:#07111f; padding:14px 22px; border-radius:10px; text-decoration:none; font-weight:bold; display:inline-block; margin-top:20px; }
+    section { padding:50px 8%; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
+    .card { background:white; border-radius:18px; overflow:hidden; box-shadow:0 8px 25px rgba(0,0,0,.08); }
+    .card img { width:100%; height:220px; object-fit:cover; background:#e5e7eb; }
+    .card-body { padding:22px; }
+    .card h3 { margin:0 0 10px; font-size:22px; }
+    .info { color:#4b5563; margin:6px 0; }
+    .price { font-size:22px; font-weight:bold; margin:12px 0; }
+    .call { background:#07111f; color:white; padding:12px; border-radius:8px; text-align:center; display:block; text-decoration:none; margin-top:15px; }
+    footer { background:#07111f; color:white; padding:30px 8%; text-align:center; }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">TM</div>
-        <div>
-          <strong>TMCARS LLC</strong>
-          <span>Used Cars & Auto Repair</span>
-        </div>
-      </div>
-      <nav>
-        <a href="#inventory">Inventory</a>
-        <a href="#services">Services</a>
-        <a href="#location">Location</a>
-        <a href="#contact" class="nav-btn">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div class="container hero-content">
-      <p class="eyebrow">Crescent, Pennsylvania</p>
-      <h1>Reliable Used Cars & Professional Auto Repair</h1>
-      <p class="lead">
-        TMCARS LLC helps customers buy dependable used vehicles and provides honest diagnostics, service, and repair.
-      </p>
-      <div class="hero-actions">
-        <a class="btn" href="tel:7248886688">Call Now</a>
-        <a class="btn secondary" href="#inventory">View Cars</a>
-        <a class="btn secondary" href="#contact">Request Service</a>
-      </div>
-    </div>
-  </section>
+<header>
+  <div class="logo"><span>TM</span>TMCARS LLC</div>
+  <nav>
+    <a href="#inventory">Inventory</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section class="container section" id="inventory">
-    <p class="eyebrow">Available vehicles</p>
-    <h2>Current Inventory</h2>
-    <p class="section-intro">Replace these sample vehicles with your real cars, photos, mileage, VIN, and price.</p>
+<div class="hero">
+  <h1>Reliable Used Cars & Professional Auto Repair</h1>
+  <p>TMCARS LLC helps customers buy dependable used vehicles and provides honest diagnostics, service, and repair.</p>
+  <a class="btn" href="tel:7248886688">Call Now</a>
+</div>
 
-    <div class="inventory-grid">
-      <div class="vehicle-card">
-        <div class="vehicle-photo">Add Vehicle Photo</div>
-        <div class="vehicle-body">
-          <h3>2018 Toyota RAV4 Hybrid</h3>
-          <p>Mileage: Add mileage</p>
-          <p>VIN: Add VIN</p>
-          <strong>Price: Call for price</strong>
-          <a href="tel:7248886688" class="card-btn">Call About This Car</a>
-        </div>
-      </div>
+<section id="inventory">
+  <h2>Current Inventory</h2>
+  <p>Available vehicles from TMCARS LLC.</p>
+  <div id="cars" class="grid"></div>
+</section>
 
-      <div class="vehicle-card">
-        <div class="vehicle-photo">Add Vehicle Photo</div>
-        <div class="vehicle-body">
-          <h3>2016 Toyota Camry Hybrid</h3>
-          <p>Mileage: Add mileage</p>
-          <p>VIN: Add VIN</p>
-          <strong>Price: Call for price</strong>
-          <a href="tel:7248886688" class="card-btn">Call About This Car</a>
-        </div>
-      </div>
+<section id="services">
+  <h2>Services</h2>
+  <p>Used car sales, diagnostics, maintenance, engine repair, transmission service, brakes, suspension, and more.</p>
+</section>
 
-      <div class="vehicle-card">
-        <div class="vehicle-photo">Add Vehicle Photo</div>
-        <div class="vehicle-body">
-          <h3>Add Another Vehicle</h3>
-          <p>Mileage: Add mileage</p>
-          <p>VIN: Add VIN</p>
-          <strong>Price: Add price</strong>
-          <a href="tel:7248886688" class="card-btn">Call About This Car</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p><strong>Phone:</strong> <a href="tel:7248886688">724-888-6688</a></p>
+  <p><strong>Email:</strong> tmcars.pa@gmail.com</p>
+  <p><strong>Location:</strong> Crescent, PA</p>
+</section>
 
-  <section class="dark section" id="services">
-    <div class="container">
-      <p class="eyebrow">Services</p>
-      <h2>Auto Repair & Diagnostics</h2>
-      <div class="service-grid">
-        <div class="service">Check engine light diagnostics</div>
-        <div class="service">Engine & transmission service</div>
-        <div class="service">Hybrid vehicle diagnostics</div>
-        <div class="service">Electrical diagnostics</div>
-        <div class="service">Brake & suspension repair</div>
-        <div class="service">Pre-purchase inspections</div>
-      </div>
-    </div>
-  </section>
+<footer>
+  © TMCARS LLC — Used Cars & Auto Repair
+</footer>
 
-  <section class="container section" id="location">
-    <p class="eyebrow">Find us</p>
-    <h2>Location</h2>
-    <div class="location-grid">
-      <div>
-        <h3>TMCARS LLC</h3>
-        <p><strong>Address:</strong><br>28 McGovern Blvd, Crescent, PA 15046</p>
-        <p><strong>Phone:</strong> <a href="tel:7248886688">724-888-6688</a></p>
-        <p><strong>Email:</strong> <a href="mailto:tmcars.pa@gmail.com">tmcars.pa@gmail.com</a></p>
-        <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=28+McGovern+Blvd+Crescent+PA+15046">Open Google Maps</a>
-      </div>
-      <iframe
-        title="TMCARS LLC Google Map"
-        src="https://www.google.com/maps?q=28%20McGovern%20Blvd%20Crescent%20PA%2015046&output=embed"
-        loading="lazy">
-      </iframe>
-    </div>
-  </section>
+<script>
+const repo = "Atajan1986/tmcars-website";
+const carsContainer = document.getElementById("cars");
 
-  <section class="container section" id="contact">
-    <p class="eyebrow">Contact</p>
-    <h2>Send a request</h2>
-    <div class="contact-box">
-      <form action="mailto:tmcars.pa@gmail.com" method="post" enctype="text/plain">
-        <input name="Name" placeholder="Your name" required>
-        <input name="Phone" placeholder="Phone number">
-        <input name="Vehicle" placeholder="Vehicle / service needed">
-        <textarea name="Message" placeholder="Message" rows="5"></textarea>
-        <button class="btn" type="submit">Send Email Request</button>
-      </form>
-      <div>
-        <h3>Fast contact</h3>
-        <p>For faster service, call directly.</p>
-        <a class="btn" href="tel:7248886688">Call 724-888-6688</a>
-        <a class="btn secondary dark-text" href="mailto:tmcars.pa@gmail.com">Email Us</a>
-      </div>
-    </div>
-  </section>
+function parseFrontMatter(text) {
+  const match = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)/);
+  if (!match) return {};
+  const data = {};
+  match[1].split("\n").forEach(line => {
+    const i = line.indexOf(":");
+    if (i > -1) {
+      const key = line.slice(0, i).trim();
+      let value = line.slice(i + 1).trim();
+      value = value.replace(/^["']|["']$/g, "");
+      data[key] = value;
+    }
+  });
+  data.body = match[2] || "";
+  return data;
+}
 
-  <footer>
-    <div class="container footer">
-      <p>© 2026 TMCARS LLC</p>
-      <p>Used Car Dealer • Auto Repair • Diagnostics</p>
-    </div>
-  </footer>
+function imagePath(path) {
+  if (!path) return "";
+  if (path.startsWith("http")) return path;
+  if (path.startsWith("/")) return path;
+  return "/" + path;
+}
+
+async function loadCars() {
+  try {
+    const listRes = await fetch(`https://api.github.com/repos/${repo}/contents/cars?ref=main`);
+    const files = await listRes.json();
+
+    const mdFiles = files.filter(f => f.name.endsWith(".md"));
+
+    if (mdFiles.length === 0) {
+      carsContainer.innerHTML = "<p>No vehicles listed yet.</p>";
+      return;
+    }
+
+    for (const file of mdFiles) {
+      const res = await fetch(file.download_url);
+      const text = await res.text();
+      const car = parseFrontMatter(text);
+
+      carsContainer.innerHTML += `
+        <div class="card">
+          ${car.image ? `<img src="${imagePath(car.image)}" alt="${car.title || 'Vehicle'}">` : `<img alt="No photo">`}
+          <div class="card-body">
+            <h3>${car.title || "Vehicle"}</h3>
+            <p class="info"><strong>Mileage:</strong> ${car.mileage || "Call for mileage"}</p>
+            <p class="info"><strong>VIN:</strong> ${car.vin || "Call for VIN"}</p>
+            <p class="price">${car.price ? "$" + car.price : "Call for price"}</p>
+            <p>${car.body || car.short_description || ""}</p>
+            <a class="call" href="tel:7248886688">Call About This Car</a>
+          </div>
+        </div>
+      `;
+    }
+  } catch (e) {
+    carsContainer.innerHTML = "<p>Inventory loading...</p>";
+  }
+}
+
+loadCars();
+</script>
+
 </body>
 </html>
