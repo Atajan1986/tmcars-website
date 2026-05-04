@@ -10,68 +10,29 @@ collections:
     label: "Cars"
     folder: "cars"
     create: true
-    slug: "{{year}}-{{make}}-{{model}}-{{vin}}"
-
+    slug: "{{year}}-{{make}}-{{model}}"
     fields:
       - label: "Status"
         name: "status"
         widget: "select"
-        options:
-          - "Available"
-          - "Pending"
-          - "Sold"
-          - "Coming Soon"
+        options: ["Available", "Pending", "Sold", "Coming Soon"]
         default: "Available"
 
       - label: "Year"
         name: "year"
         widget: "select"
-        options:
-          - "2026"
-          - "2025"
-          - "2024"
-          - "2023"
-          - "2022"
-          - "2021"
-          - "2020"
-          - "2019"
-          - "2018"
-          - "2017"
-          - "2016"
-          - "2015"
+        options: ["2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015"]
 
       - label: "Make"
         name: "make"
         widget: "select"
-        options:
-          - "Toyota"
-          - "Honda"
-          - "Nissan"
-          - "Hyundai"
-          - "Kia"
-          - "Ford"
-          - "BMW"
-          - "Mercedes-Benz"
+        options: ["Toyota", "Honda", "Nissan", "Hyundai", "Kia", "Ford", "BMW", "Mercedes-Benz"]
 
-      - label: "Model"
-        name: "model"
-        widget: "string"
-
-      - label: "VIN"
-        name: "vin"
-        widget: "string"
-
-      - label: "Mileage"
-        name: "mileage"
-        widget: "number"
-
-      - label: "Price"
-        name: "price"
-        widget: "number"
-
-      - label: "Main Photo"
-        name: "image"
-        widget: "image"
+      - { label: "Model", name: "model", widget: "string" }
+      - { label: "VIN", name: "vin", widget: "string" }
+      - { label: "Mileage", name: "mileage", widget: "number" }
+      - { label: "Price", name: "price", widget: "number" }
+      - { label: "Main Photo", name: "image", widget: "image" }
 
       - label: "More Photos"
         name: "gallery"
@@ -82,11 +43,5 @@ collections:
           name: "photo"
           widget: "image"
 
-      - label: "Video Link"
-        name: "video_url"
-        widget: "string"
-        required: false
-
-      - label: "Description"
-        name: "body"
-        widget: "text"
+      - { label: "Video Link", name: "video_url", widget: "string", required: false }
+      - { label: "Description", name: "body", widget: "text" }
