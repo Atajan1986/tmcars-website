@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TMCARS LLC</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #111;
-      color: white;
-      text-align: center;
-    }
-    .car {
-      background: #222;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    img {
-      width: 300px;
-      border-radius: 10px;
-    }
-  </style>
+  <title>TMCARS LLC</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    .car {
+      background: #222;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 320px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -29,37 +37,35 @@
 <div id="cars"></div>
 
 <script>
-const AIRTABLE_TOKEN = "";
-const BASE_ID = "PASTE_BASE_ID";
-const TABLE_NAME = "CARS";
+fetch("/.netlify/functions/cars")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("cars");
 
-fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`, {
-  headers: {
-    Authorization: `Bearer ${AIRTABLE_TOKEN}`
-  }
-})
-.then(res => res.json())
-.then(data => {
-  const container = document.getElementById("cars");
+    data.records.forEach(record => {
+      const car = record.fields;
 
-  data.records.forEach(record => {
-    const car = record.fields;
+      const photos = car.Attachments || [];
+      const firstPhoto = photos.length ? photos[0].url : "";
 
-    const div = document.createElement("div");
-    div.className = "car";
+      const div = document.createElement("div");
+      div.className = "car";
 
-    div.innerHTML = `
-      <h2>${car.Make || ""} ${car.Model || ""}</h2>
-      <p>Year: ${car.Year || ""}</p>
-      <p>Price: $${car.Price || ""}</p>
-      <p>Mileage: ${car.Mileage || ""}</p>
-      <p>${car.Description || ""}</p>
-      ${car.Attachments ? `<img src="${car.Attachments[0].url}">` : ""}
-    `;
+      div.innerHTML = `
+        <h2>${car.Make || ""} ${car.Model || ""}</h2>
+        <p>Year: ${car.Year || ""}</p>
+        <p>Price: $${car.Price || ""}</p>
+        <p>Mileage: ${car.Mileage || ""}</p>
+        <p>${car.Description || ""}</p>
+        ${firstPhoto ? `<img src="${firstPhoto}">` : ""}
+      `;
 
-    container.appendChild(div);
-  });
-});
+      container.appendChild(div);
+    });
+  })
+  .catch(err => {
+    document.getElementById("cars").innerHTML = "Error loading cars";
+  });
 </script>
 
 </body>
