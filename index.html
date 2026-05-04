@@ -4,42 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TMCARS LLC | Used Cars & Auto Repair</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f6f8;color:#111827}
-header{background:#07111f;color:white;padding:14px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;box-shadow:0 4px 20px rgba(0,0,0,.25)}
-.logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:white}
-.logo img{width:68px;height:68px;object-fit:cover;border-radius:14px}
-.logo strong{font-size:24px}
-.logo small{color:#d1d5db;font-size:13px}
-nav a{color:white;text-decoration:none;margin-left:24px;font-weight:700}
-.hero{background:linear-gradient(rgba(7,17,31,.82),rgba(7,17,31,.88)),url("images/logo.jpg") center/cover;color:white;padding:105px 7%}
-.hero h1{font-size:58px;max-width:900px;margin:0 0 20px}
-.hero p{font-size:22px;max-width:760px;color:#e5e7eb;line-height:1.5}
-.btn{display:inline-block;background:#e8b94b;color:#07111f;padding:15px 25px;border-radius:12px;text-decoration:none;font-weight:800;margin-top:20px}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#111827}
+a{text-decoration:none}
+header{background:#07111f;color:white;padding:14px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
+.logo{display:flex;align-items:center;gap:14px;color:white;font-weight:800}
+.logo img{width:62px;height:62px;object-fit:cover;border-radius:12px;background:white}
+.logo small{color:#d1d5db}
+nav a{color:white;margin-left:22px;font-weight:700}
+.hero{background:linear-gradient(rgba(7,17,31,.82),rgba(7,17,31,.9)),url("images/logo.jpg") center/cover;color:white;padding:90px 7%}
+.hero h1{font-size:54px;max-width:900px;margin:0 0 20px}
+.hero p{font-size:21px;max-width:760px;color:#e5e7eb}
+.btn{display:inline-block;background:#e8b94b;color:#07111f;padding:14px 23px;border-radius:10px;font-weight:800;margin-top:18px}
 section{padding:55px 7%}
-h2{font-size:38px;margin:0 0 12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:30px}
-.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,.12)}
-.car-photo{width:100%;height:230px;object-fit:cover;background:#e5e7eb;display:block}
+h2{font-size:38px;margin:0 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:30px}
+.card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.card img{width:100%;height:230px;object-fit:cover;background:#ddd}
 .card-body{padding:22px}
 .card h3{font-size:23px;margin:0 0 12px}
-.info{color:#4b5563;margin:7px 0}
-.price{font-size:24px;font-weight:800;margin:14px 0}
-.call{display:block;text-align:center;background:#07111f;color:white;text-decoration:none;padding:13px;border-radius:10px;font-weight:700;margin-top:15px}
-.light-section{background:white}
-.contact-box{background:white;border-radius:18px;padding:28px;box-shadow:0 8px 25px rgba(0,0,0,.08);max-width:750px}
+.info{margin:6px 0;color:#4b5563}
+.price{font-size:25px;font-weight:900;margin:14px 0;color:#111827}
+.view{background:#07111f;color:white;padding:12px;border-radius:9px;display:block;text-align:center;font-weight:800;margin-top:15px;cursor:pointer}
+.light{background:white}
+.contact-box{background:white;border-radius:18px;padding:28px;box-shadow:0 8px 25px rgba(0,0,0,.08);max-width:800px}
 .contact-box p{font-size:18px}
 footer{background:#07111f;color:white;text-align:center;padding:30px;font-weight:700}
-@media(max-width:700px){.hero h1{font-size:38px}nav{display:none}.logo img{width:54px;height:54px}}
+
+.modal{display:none;position:fixed;z-index:100;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.82);overflow:auto;padding:30px}
+.modal-box{background:white;max-width:1000px;margin:auto;border-radius:18px;overflow:hidden}
+.close{float:right;font-size:34px;font-weight:bold;cursor:pointer;margin:15px 22px}
+.modal-content{padding:28px;clear:both}
+.big-photo{width:100%;max-height:560px;object-fit:contain;background:#111;border-radius:14px}
+.thumbs{display:flex;gap:10px;overflow-x:auto;margin-top:15px}
+.thumbs img{width:110px;height:80px;object-fit:cover;border-radius:8px;cursor:pointer;border:2px solid #ddd}
+.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0}
+.detail{background:#f3f4f6;padding:14px;border-radius:10px}
+.call{display:inline-block;background:#e8b94b;color:#07111f;padding:14px 24px;border-radius:10px;font-weight:900}
+
+@media(max-width:700px){
+  nav{display:none}
+  .hero h1{font-size:36px}
+  .hero p{font-size:18px}
+  .logo img{width:50px;height:50px}
+}
 </style>
 </head>
+
 <body>
 
 <header>
   <a class="logo" href="#">
     <img src="images/logo.jpg" alt="TMCARS Logo">
-    <div><strong>TMCARS LLC</strong><br><small>Used Cars & Auto Repair</small></div>
+    <div>TMCARS LLC<br><small>Used Cars & Auto Repair</small></div>
   </a>
   <nav>
     <a href="#inventory">Inventory</a>
@@ -49,24 +68,24 @@ footer{background:#07111f;color:white;text-align:center;padding:30px;font-weight
 </header>
 
 <div class="hero">
-  <h1>Reliable Used Cars & Professional Auto Repair</h1>
-  <p>TMCARS LLC helps customers buy dependable used vehicles and provides honest diagnostics, service, and repair.</p>
+  <h1>Quality Used Cars & Professional Auto Repair</h1>
+  <p>Welcome to TMCARS LLC. We provide reliable used vehicles, diagnostics, mechanical repair, and honest automotive service in Crescent, Pennsylvania.</p>
   <a class="btn" href="tel:7248886688">Call Now</a>
 </div>
 
 <section id="inventory">
   <h2>Current Inventory</h2>
-  <p>Available vehicles from TMCARS LLC.</p>
+  <p>Browse available vehicles. Click “View Details” to see photos and vehicle information.</p>
   <div id="cars" class="grid"></div>
 </section>
 
-<section id="services" class="light-section">
+<section id="services" class="light">
   <h2>Services</h2>
-  <p>Used car sales, diagnostics, maintenance, engine repair, transmission service, brakes, suspension, and more.</p>
+  <p>Used car sales, diagnostics, maintenance, engine repair, transmission service, brakes, suspension, hybrid diagnostics, and pre-purchase inspections.</p>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
+  <h2>Contact Us</h2>
   <div class="contact-box">
     <p><b>Phone:</b> <a href="tel:7248886688">724-888-6688</a></p>
     <p><b>Email:</b> <a href="mailto:tmcars.pa@gmail.com">tmcars.pa@gmail.com</a></p>
@@ -76,9 +95,17 @@ footer{background:#07111f;color:white;text-align:center;padding:30px;font-weight
 
 <footer>© TMCARS LLC — Used Cars & Auto Repair</footer>
 
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modalContent" class="modal-content"></div>
+  </div>
+</div>
+
 <script>
 const repo="Atajan1986/tmcars-website";
 const box=document.getElementById("cars");
+let allCars=[];
 
 function parse(text){
   const m=text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)/);
@@ -95,7 +122,17 @@ function parse(text){
   d.body=m[2]||"";
   return d;
 }
-function img(p){if(!p)return ""; if(p.startsWith("http"))return p; return p.startsWith("/")?p:"/"+p;}
+
+function img(p){
+  if(!p)return "";
+  if(p.startsWith("http"))return p;
+  return p.startsWith("/")?p:"/"+p;
+}
+
+function money(p){
+  if(!p)return "Call for price";
+  return String(p).includes("$") ? p : "$"+p;
+}
 
 async function loadCars(){
   try{
@@ -104,24 +141,74 @@ async function loadCars(){
     const cars=files.filter(f=>f.name.endsWith(".md"));
     box.innerHTML="";
     if(!cars.length){box.innerHTML="<p>No vehicles listed yet.</p>";return;}
+
     for(const f of cars){
       const t=await fetch(f.download_url).then(r=>r.text());
       const c=parse(t);
+      c.file=f.name;
+      allCars.push(c);
+    }
+
+    allCars.forEach((c,i)=>{
       box.innerHTML+=`
       <div class="card">
-        ${c.image ? `<img class="car-photo" src="${img(c.image)}" alt="${c.title||'Vehicle'}">` : `<div class="car-photo"></div>`}
+        ${c.image ? `<img src="${img(c.image)}" alt="${c.title||'Vehicle'}">` : `<img alt="No photo">`}
         <div class="card-body">
           <h3>${c.title||"Vehicle"}</h3>
-          <p class="info"><b>Mileage:</b> ${c.mileage||"Call for mileage"}</p>
-          <p class="info"><b>VIN:</b> ${c.vin||"Call for VIN"}</p>
-          <p class="price">${c.price ? "$"+c.price : "Call for price"}</p>
-          <p>${c.body||""}</p>
-          <a class="call" href="tel:7248886688">Call About This Car</a>
+          <p class="info"><b>Year:</b> ${c.year||"N/A"}</p>
+          <p class="info"><b>Mileage:</b> ${c.mileage||"Call"}</p>
+          <p class="info"><b>VIN:</b> ${c.vin||"Call"}</p>
+          <p class="price">${money(c.price)}</p>
+          <div class="view" onclick="openCar(${i})">View Details</div>
         </div>
       </div>`;
-    }
-  }catch(e){box.innerHTML="<p>Inventory loading...</p>";}
+    });
+
+  }catch(e){
+    box.innerHTML="<p>Inventory loading error. Please try again later.</p>";
+  }
 }
+
+function getPhotos(c){
+  let photos=[];
+  if(c.image) photos.push(img(c.image));
+  if(c.gallery){
+    const matches=[...String(c.gallery).matchAll(/photo:\s*(.+)/g)];
+    matches.forEach(m=>photos.push(img(m[1].trim().replace(/^["']|["']$/g,""))));
+  }
+  return photos;
+}
+
+function openCar(i){
+  const c=allCars[i];
+  const photos=getPhotos(c);
+  const main=photos[0]||"";
+  document.getElementById("modalContent").innerHTML=`
+    <h2>${c.title||"Vehicle"}</h2>
+    ${main ? `<img id="bigPhoto" class="big-photo" src="${main}">` : ""}
+    <div class="thumbs">
+      ${photos.map(p=>`<img src="${p}" onclick="document.getElementById('bigPhoto').src='${p}'">`).join("")}
+    </div>
+
+    <div class="details">
+      <div class="detail"><b>Year</b><br>${c.year||"N/A"}</div>
+      <div class="detail"><b>Make</b><br>${c.make||"N/A"}</div>
+      <div class="detail"><b>Model</b><br>${c.model||"N/A"}</div>
+      <div class="detail"><b>Mileage</b><br>${c.mileage||"Call"}</div>
+      <div class="detail"><b>VIN</b><br>${c.vin||"Call"}</div>
+      <div class="detail"><b>Price</b><br>${money(c.price)}</div>
+    </div>
+
+    <p>${c.body||""}</p>
+    <a class="call" href="tel:7248886688">Call About This Car</a>
+  `;
+  document.getElementById("modal").style.display="block";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
 loadCars();
 </script>
 
