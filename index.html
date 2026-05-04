@@ -4,40 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TMCARS LLC | Used Cars & Auto Repair</title>
-
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#111}
-header{background:#07111f;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px}
-.logo-box{background:#e8b94b;color:#07111f;padding:14px;border-radius:14px}
-nav a{color:white;text-decoration:none;margin-left:22px;font-weight:600}
-.hero{background:#07111f;color:white;padding:80px 7%}
-.hero h1{font-size:56px;max-width:850px;margin:0 0 20px}
-.hero p{font-size:22px;max-width:750px;color:#d1d5db;line-height:1.5}
-.btn{display:inline-block;background:#e8b94b;color:#07111f;padding:15px 24px;border-radius:12px;text-decoration:none;font-weight:800;margin-top:20px}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f6f8;color:#111827}
+header{background:#07111f;color:white;padding:14px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:white}
+.logo img{width:68px;height:68px;object-fit:cover;border-radius:14px}
+.logo strong{font-size:24px}
+.logo small{color:#d1d5db;font-size:13px}
+nav a{color:white;text-decoration:none;margin-left:24px;font-weight:700}
+.hero{background:linear-gradient(rgba(7,17,31,.82),rgba(7,17,31,.88)),url("images/logo.jpg") center/cover;color:white;padding:105px 7%}
+.hero h1{font-size:58px;max-width:900px;margin:0 0 20px}
+.hero p{font-size:22px;max-width:760px;color:#e5e7eb;line-height:1.5}
+.btn{display:inline-block;background:#e8b94b;color:#07111f;padding:15px 25px;border-radius:12px;text-decoration:none;font-weight:800;margin-top:20px}
 section{padding:55px 7%}
-h2{font-size:38px;margin:0 0 10px}
+h2{font-size:38px;margin:0 0 12px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:30px}
 .card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,.12)}
-.car-photo{width:100%;height:230px;object-fit:cover;background:#ddd;display:block}
+.car-photo{width:100%;height:230px;object-fit:cover;background:#e5e7eb;display:block}
 .card-body{padding:22px}
 .card h3{font-size:23px;margin:0 0 12px}
-.info{color:#555;margin:7px 0}
+.info{color:#4b5563;margin:7px 0}
 .price{font-size:24px;font-weight:800;margin:14px 0}
 .call{display:block;text-align:center;background:#07111f;color:white;text-decoration:none;padding:13px;border-radius:10px;font-weight:700;margin-top:15px}
-footer{background:#07111f;color:white;text-align:center;padding:30px}
-@media(max-width:700px){
-.hero h1{font-size:38px}
-nav{display:none}
-}
+.light-section{background:white}
+.contact-box{background:white;border-radius:18px;padding:28px;box-shadow:0 8px 25px rgba(0,0,0,.08);max-width:750px}
+.contact-box p{font-size:18px}
+footer{background:#07111f;color:white;text-align:center;padding:30px;font-weight:700}
+@media(max-width:700px){.hero h1{font-size:38px}nav{display:none}.logo img{width:54px;height:54px}}
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="logo"><span class="logo-box">TM</span><div>TMCARS LLC<br><small>Used Cars & Auto Repair</small></div></div>
+  <a class="logo" href="#">
+    <img src="images/logo.jpg" alt="TMCARS Logo">
+    <div><strong>TMCARS LLC</strong><br><small>Used Cars & Auto Repair</small></div>
+  </a>
   <nav>
     <a href="#inventory">Inventory</a>
     <a href="#services">Services</a>
@@ -57,16 +60,18 @@ nav{display:none}
   <div id="cars" class="grid"></div>
 </section>
 
-<section id="services">
+<section id="services" class="light-section">
   <h2>Services</h2>
   <p>Used car sales, diagnostics, maintenance, engine repair, transmission service, brakes, suspension, and more.</p>
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
-  <p><b>Phone:</b> <a href="tel:7248886688">724-888-6688</a></p>
-  <p><b>Email:</b> tmcars.pa@gmail.com</p>
-  <p><b>Location:</b> Crescent, PA</p>
+  <div class="contact-box">
+    <p><b>Phone:</b> <a href="tel:7248886688">724-888-6688</a></p>
+    <p><b>Email:</b> <a href="mailto:tmcars.pa@gmail.com">tmcars.pa@gmail.com</a></p>
+    <p><b>Address:</b> 28 McGovern Blvd, Crescent, PA 15046</p>
+  </div>
 </section>
 
 <footer>© TMCARS LLC — Used Cars & Auto Repair</footer>
@@ -90,12 +95,7 @@ function parse(text){
   d.body=m[2]||"";
   return d;
 }
-
-function img(p){
-  if(!p)return "";
-  if(p.startsWith("http"))return p;
-  return p.startsWith("/") ? p : "/" + p;
-}
+function img(p){if(!p)return ""; if(p.startsWith("http"))return p; return p.startsWith("/")?p:"/"+p;}
 
 async function loadCars(){
   try{
@@ -104,13 +104,12 @@ async function loadCars(){
     const cars=files.filter(f=>f.name.endsWith(".md"));
     box.innerHTML="";
     if(!cars.length){box.innerHTML="<p>No vehicles listed yet.</p>";return;}
-
     for(const f of cars){
       const t=await fetch(f.download_url).then(r=>r.text());
       const c=parse(t);
       box.innerHTML+=`
       <div class="card">
-        ${c.image ? `<img class="car-photo" src="${img(c.image)}">` : `<div class="car-photo"></div>`}
+        ${c.image ? `<img class="car-photo" src="${img(c.image)}" alt="${c.title||'Vehicle'}">` : `<div class="car-photo"></div>`}
         <div class="card-body">
           <h3>${c.title||"Vehicle"}</h3>
           <p class="info"><b>Mileage:</b> ${c.mileage||"Call for mileage"}</p>
@@ -121,9 +120,7 @@ async function loadCars(){
         </div>
       </div>`;
     }
-  }catch(e){
-    box.innerHTML="<p>Inventory loading...</p>";
-  }
+  }catch(e){box.innerHTML="<p>Inventory loading...</p>";}
 }
 loadCars();
 </script>
