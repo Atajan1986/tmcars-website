@@ -1,18 +1,114 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: git-gateway
+  branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "cars"
-    label: "Cars"
-    folder: "cars"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Price", name: "price", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Description", name: "body", widget: "text" }
+  - name: "cars"
+    label: "Cars"
+    folder: "cars"
+    create: true
+    slug: "{{year}}-{{make}}-{{model}}-{{vin}}"
+    fields:
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["Available", "Pending", "Sold", "Coming Soon"]
+        default: "Available"
+
+      - label: "Year"
+        name: "year"
+        widget: "select"
+        options: ["2026","2025","2024","2023","2022","2021","2020","2019","2018","2017","2016","2015","2014","2013","2012","2011","2010","2009","2008","2007","2006","2005","2004","2003","2002","2001","2000"]
+
+      - label: "Make"
+        name: "make"
+        widget: "select"
+        options: ["Toyota","Honda","Nissan","Hyundai","Kia","Ford","Chevrolet","Dodge","Jeep","Subaru","Mazda","BMW","Mercedes-Benz","Audi","Volkswagen","Lexus","Acura","Infiniti","GMC","Ram","Chrysler","Mitsubishi","Volvo","Porsche","Tesla","Lincoln","Cadillac","Buick","Mini"]
+
+      - { label: "Model", name: "model", widget: "string", hint: "Example: Camry, Accord, Elantra" }
+      - { label: "Trim", name: "trim", widget: "string", required: false, hint: "Example: SE, EX-L, Limited" }
+
+      - { label: "VIN", name: "vin", widget: "string" }
+      - { label: "Stock Number", name: "stock_number", widget: "string", required: false }
+      - { label: "Mileage", name: "mileage", widget: "number", value_type: "int" }
+      - { label: "Price", name: "price", widget: "number", value_type: "int" }
+
+      - label: "Exterior Color"
+        name: "exterior_color"
+        widget: "select"
+        required: false
+        options: ["White","Black","Silver","Gray","Blue","Red","Green","Brown","Gold","Beige","Yellow","Orange","Burgundy","Purple"]
+
+      - label: "Interior Color"
+        name: "interior_color"
+        widget: "select"
+        required: false
+        options: ["Black","Gray","Tan","Beige","Brown","White","Red"]
+
+      - label: "Title Status"
+        name: "title_status"
+        widget: "select"
+        required: false
+        options: ["Clean Title","Rebuilt Title","Salvage Title","Flood Title","Lemon Title","Not Sure"]
+
+      - label: "Condition"
+        name: "condition"
+        widget: "select"
+        required: false
+        options: ["Excellent","Good","Fair","Needs Work"]
+
+      - label: "Transmission"
+        name: "transmission"
+        widget: "select"
+        required: false
+        options: ["Automatic","Manual","CVT","DCT"]
+
+      - label: "Drivetrain"
+        name: "drivetrain"
+        widget: "select"
+        required: false
+        options: ["FWD","RWD","AWD","4WD"]
+
+      - label: "Fuel Type"
+        name: "fuel_type"
+        widget: "select"
+        required: false
+        options: ["Gasoline","Hybrid","Plug-In Hybrid","Diesel","Electric"]
+
+      - { label: "Engine", name: "engine", widget: "string", required: false, hint: "Example: 2.5L 4-Cylinder" }
+
+      - label: "Main Photo"
+        name: "image"
+        widget: "image"
+        hint: "iPhone photos are OK. Best: JPG/PNG/WebP."
+
+      - label: "More Photos"
+        name: "gallery"
+        widget: "list"
+        required: false
+        summary: "{{fields.photo}}"
+        field:
+          label: "Photo"
+          name: "photo"
+          widget: "image"
+          hint: "Add one photo at a time from iPhone."
+
+      - { label: "Video Link", name: "video_url", widget: "string", required: false, hint: "Paste YouTube, TikTok, Instagram, Google Drive link." }
+
+      - label: "Features"
+        name: "features"
+        widget: "list"
+        required: false
+        field:
+          label: "Feature"
+          name: "feature"
+          widget: "string"
+
+      - { label: "Short Description", name: "short_description", widget: "text", required: false }
+      - { label: "Full Description", name: "body", widget: "markdown", required: false }
+
+      - { label: "Contact Phone", name: "contact_phone", widget: "string", required: false, default: "724-888-6688" }
+      - { label: "Location", name: "location", widget: "string", required: false, default: "Crescent, PA" }
