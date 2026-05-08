@@ -1,165 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TMCARS LLC | Inventory</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#111}
-header{background:#07111f;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
-header h1{margin:0;font-size:28px}
-nav a{color:white;margin-left:20px;text-decoration:none;font-weight:bold}
-.hero{background:#0f172a;color:white;padding:55px 7%}
-.hero h2{font-size:42px;margin:0 0 12px}
-.hero p{color:#d1d5db;font-size:18px}
-section{padding:45px 7%}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
-.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,.12)}
-.card img{width:100%;height:230px;object-fit:cover;background:#ddd}
-.card-body{padding:20px}
-.card h3{margin:0 0 10px;font-size:22px}
-.price{font-size:24px;font-weight:bold;margin:12px 0}
-.btn{background:#07111f;color:white;padding:12px;border-radius:8px;text-align:center;cursor:pointer;font-weight:bold}
-footer{background:#07111f;color:white;text-align:center;padding:25px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TMCARS LLC</title>
 
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999;padding:20px;overflow:auto}
-.modal-box{background:white;max-width:1000px;margin:auto;border-radius:16px;padding:25px}
-.close{float:right;font-size:36px;cursor:pointer;font-weight:bold}
-.big-photo{width:100%;max-height:560px;object-fit:contain;background:#111;border-radius:12px}
-.thumbs{display:flex;gap:10px;overflow-x:auto;margin-top:14px}
-.thumbs img{width:100px;height:75px;object-fit:cover;border-radius:8px;cursor:pointer}
-.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:20px}
-.detail{background:#f3f4f6;padding:12px;border-radius:8px}
-</style>
+  <style>
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#f4f4f4;
+    }
+
+    header{
+      background:#111827;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    header h1{
+      font-size:48px;
+      margin:0;
+    }
+
+    header p{
+      font-size:20px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+      padding:30px 20px;
+    }
+
+    .cars{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .price{
+      color:#0f766e;
+      font-size:24px;
+      font-weight:bold;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      border:none;
+      background:#111827;
+      color:white;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    footer{
+      background:white;
+      text-align:center;
+      padding:30px;
+      margin-top:30px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
   <h1>TMCARS LLC</h1>
-  <nav>
-    <a href="#inventory">Inventory</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <p>Used Cars • Auto Service • Pittsburgh, PA</p>
 </header>
 
-<div class="hero">
-  <h2>Used Cars & Auto Repair</h2>
-  <p>Reliable used vehicles and professional auto service in Crescent, PA.</p>
-</div>
+<div class="container">
 
-<section id="inventory">
-  <h2>Current Inventory</h2>
-  <div id="cars" class="grid">Loading cars...</div>
-</section>
+  <h2>Available Cars</h2>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p><b>Phone:</b> <a href="tel:7248886688">724-888-6688</a></p>
-  <p><b>Email:</b> tmcars.pa@gmail.com</p>
-  <p><b>Address:</b> 28 McGovern Blvd, Crescent, PA 15046</p>
-</section>
+  <div class="cars">
 
-<footer>© TMCARS LLC</footer>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d">
+      <div class="card-content">
+        <h3>2015 Toyota Camry</h3>
+        <p class="price">$8,900</p>
+        <p>120,000 miles</p>
+        <p>Clean title, runs and drives good.</p>
+        <button>Contact Dealer</button>
+      </div>
+    </div>
 
-<div id="modal" class="modal">
-  <div class="modal-box">
-    <span class="close" onclick="closeModal()">×</span>
-    <div id="modalContent"></div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2">
+      <div class="card-content">
+        <h3>2017 Honda Accord</h3>
+        <p class="price">$10,500</p>
+        <p>98,000 miles</p>
+        <p>Good condition, ready to drive.</p>
+        <button>Contact Dealer</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+      <div class="card-content">
+        <h3>2016 Hyundai Elantra</h3>
+        <p class="price">$6,900</p>
+        <p>135,000 miles</p>
+        <p>Affordable and fuel efficient.</p>
+        <button>Contact Dealer</button>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<script>
-let carsData = [];
-
-function money(value){
-  if(!value) return "Call for price";
-  return "$" + Number(value).toLocaleString();
-}
-
-function getPhotos(car){
-  return car.Attachments || car.Photos || car.Images || [];
-}
-
-async function loadCars(){
-  const container = document.getElementById("cars");
-
-  try{
-    const res = await fetch("/.netlify/functions/cars");
-    const data = await res.json();
-
-    if(!data.records || data.records.length === 0){
-      container.innerHTML = "<p>No vehicles listed yet.</p>";
-      return;
-    }
-
-    carsData = data.records.map(r => r.fields);
-    container.innerHTML = "";
-
-    carsData.forEach((car,index)=>{
-      const photos = getPhotos(car);
-      const firstPhoto = photos.length ? photos[0].url : "";
-
-      const card = document.createElement("div");
-      card.className = "card";
-
-      card.innerHTML = `
-        ${firstPhoto ? `<img src="${firstPhoto}" alt="Vehicle photo">` : `<img alt="No photo">`}
-        <div class="card-body">
-          <h3>${car.Title || ""} ${car.Make || ""} ${car.Model || ""}</h3>
-          <p><b>Year:</b> ${car.Year || ""}</p>
-          <p><b>Mileage:</b> ${car.Mileage ? Number(car.Mileage).toLocaleString() + " miles" : ""}</p>
-          <p><b>VIN:</b> ${car.VIN || ""}</p>
-          <p class="price">${money(car.Price)}</p>
-          <div class="btn" onclick="openCar(${index})">View Details</div>
-        </div>
-      `;
-
-      container.appendChild(card);
-    });
-
-  }catch(e){
-    container.innerHTML = "<p>Error loading cars. Check Netlify variables.</p>";
-  }
-}
-
-function openCar(index){
-  const car = carsData[index];
-  const photos = getPhotos(car);
-  const firstPhoto = photos.length ? photos[0].url : "";
-
-  document.getElementById("modalContent").innerHTML = `
-    <h2>${car.Title || ""} ${car.Make || ""} ${car.Model || ""}</h2>
-
-    ${firstPhoto ? `<img id="bigPhoto" class="big-photo" src="${firstPhoto}">` : "<p>No photos.</p>"}
-
-    <div class="thumbs">
-      ${photos.map(p => `<img src="${p.url}" onclick="document.getElementById('bigPhoto').src='${p.url}'">`).join("")}
-    </div>
-
-    <div class="details">
-      <div class="detail"><b>Year</b><br>${car.Year || ""}</div>
-      <div class="detail"><b>Make</b><br>${car.Make || ""}</div>
-      <div class="detail"><b>Model</b><br>${car.Model || ""}</div>
-      <div class="detail"><b>Mileage</b><br>${car.Mileage ? Number(car.Mileage).toLocaleString() + " miles" : ""}</div>
-      <div class="detail"><b>VIN</b><br>${car.VIN || ""}</div>
-      <div class="detail"><b>Price</b><br>${money(car.Price)}</div>
-    </div>
-
-    <p>${car.Description || ""}</p>
-    <p><a href="tel:7248886688">Call About This Car</a></p>
-  `;
-
-  document.getElementById("modal").style.display = "block";
-}
-
-function closeModal(){
-  document.getElementById("modal").style.display = "none";
-}
-
-loadCars();
-</script>
+<footer>
+  <h2>Contact Us</h2>
+  <p>TMCARS LLC</p>
+  <p>Pittsburgh, Pennsylvania</p>
+</footer>
 
 </body>
 </html>
