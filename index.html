@@ -1,284 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TMCARS LLC | Used Cars & Auto Service</title>
-
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#111}
-    a{text-decoration:none;color:inherit}
-
-    .hero{
-      min-height:520px;
-      background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-      url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000");
-      background-size:cover;
-      background-position:center;
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:30px;
-    }
-
-    .hero-box{max-width:900px}
-    .hero h1{font-size:64px;margin-bottom:15px;letter-spacing:1px}
-    .hero p{font-size:24px;margin-bottom:30px;color:#e5e7eb}
-
-    .hero-buttons{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
-    .btn{
-      padding:15px 26px;
-      border-radius:10px;
-      background:#0f766e;
-      color:white;
-      font-weight:bold;
-      display:inline-block;
-    }
-    .btn.dark{background:#111827}
-
-    .section{max-width:1200px;margin:auto;padding:55px 20px}
-    .section-title{text-align:center;font-size:40px;margin-bottom:15px}
-    .section-subtitle{text-align:center;color:#666;margin-bottom:40px;font-size:18px}
-
-    .cars{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:white;
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:0 8px 25px rgba(0,0,0,.12);
-      transition:.25s;
-    }
-    .card:hover{transform:translateY(-5px)}
-
-    .card img{
-      width:100%;
-      height:230px;
-      object-fit:cover;
-      background:#ddd;
-    }
-
-    .card-content{padding:22px}
-    .card h3{font-size:24px;margin-bottom:10px}
-    .price{font-size:26px;font-weight:bold;color:#0f766e;margin-bottom:10px}
-    .info{color:#555;line-height:1.7;margin-bottom:16px}
-
-    .contact-btn{
-      display:block;
-      width:100%;
-      text-align:center;
-      padding:14px;
-      background:#111827;
-      color:white;
-      border-radius:10px;
-      font-weight:bold;
-    }
-
-    .services{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:22px;
-    }
-
-    .service{
-      background:white;
-      padding:28px;
-      border-radius:18px;
-      box-shadow:0 6px 20px rgba(0,0,0,.1);
-      text-align:center;
-    }
-
-    .service h3{margin-bottom:12px;font-size:24px}
-    .service p{color:#666;line-height:1.6}
-
-    .loading,.error,.empty{
-      text-align:center;
-      font-size:20px;
-      padding:40px;
-      color:#555;
-    }
-
-    footer{
-      background:#111827;
-      color:white;
-      text-align:center;
-      padding:45px 20px;
-      margin-top:40px;
-    }
-    footer h2{font-size:34px;margin-bottom:10px}
-    footer p{color:#d1d5db;margin:6px 0}
-
-    @media(max-width:600px){
-      .hero h1{font-size:42px}
-      .hero p{font-size:19px}
-      .section-title{font-size:32px}
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMCARS LLC</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <header class="hero">
-    <div class="hero-box">
-      <h1>TMCARS LLC</h1>
-      <p>Used Cars • Auto Service • Pittsburgh, Pennsylvania</p>
-      <div class="hero-buttons">
-        <a class="btn" href="#cars">View Cars</a>
-        <a class="btn dark" href="tel:+14120000000">Call Dealer</a>
-      </div>
+<header class="hero">
+  <div class="hero-box">
+    <h1>TMCARS LLC</h1>
+    <p>Used Cars • Auto Service • Pittsburgh, Pennsylvania</p>
+    <a href="#cars" class="btn">View Cars</a>
+  </div>
+</header>
+
+<section id="cars" class="section">
+  <h2>Available Cars</h2>
+  <p>Current inventory from TMCARS LLC</p>
+  <div id="carsContainer" class="cars">
+    <p>Loading cars...</p>
+  </div>
+</section>
+
+<section class="section dark">
+  <h2>Our Services</h2>
+
+  <div class="services">
+    <div class="service">
+      <h3>Used Car Sales</h3>
+      <p>Quality used vehicles with professional dealer paperwork.</p>
     </div>
-  </header>
 
-  <section class="section" id="cars">
-    <h2 class="section-title">Available Cars</h2>
-    <p class="section-subtitle">Current inventory from TMCARS LLC</p>
-
-    <div id="carsContainer" class="cars">
-      <div class="loading">Loading cars from Airtable...</div>
+    <div class="service">
+      <h3>Auto Repair</h3>
+      <p>Diagnostics, engine, transmission, suspension and electrical work.</p>
     </div>
-  </section>
 
-  <section class="section">
-    <h2 class="section-title">Our Services</h2>
-    <p class="section-subtitle">Professional automotive services</p>
-
-    <div class="services">
-      <div class="service">
-        <h3>Used Car Sales</h3>
-        <p>Quality used vehicles with dealer paperwork and professional support.</p>
-      </div>
-
-      <div class="service">
-        <h3>Auto Repair</h3>
-        <p>Diagnostics, maintenance, engine, transmission, suspension and electrical work.</p>
-      </div>
-
-      <div class="service">
-        <h3>Dealer Support</h3>
-        <p>Vehicle preparation, inspection, service records and customer support.</p>
-      </div>
+    <div class="service">
+      <h3>Dealer Support</h3>
+      <p>Vehicle preparation, inspection and customer support.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <h2>TMCARS LLC</h2>
-    <p>Pittsburgh, Pennsylvania</p>
-    <p>Used Cars • Auto Service</p>
-    <p>Phone: +1 412-000-0000</p>
-  </footer>
+<footer>
+  <h2>TMCARS LLC</h2>
+  <p>Pittsburgh, Pennsylvania</p>
+  <p>Used Cars • Auto Service</p>
+</footer>
 
-  <script>
-    const carsContainer = document.getElementById("carsContainer");
+<script>
+async function loadCars() {
+  const box = document.getElementById("carsContainer");
 
-    function money(value){
-      if(!value) return "Call for price";
-      return "$" + Number(value).toLocaleString();
+  try {
+    const res = await fetch("/.netlify/functions/cars");
+    const data = await res.json();
+
+    const records = data.records || [];
+
+    if (records.length === 0) {
+      box.innerHTML = "<p>No cars available right now.</p>";
+      return;
     }
 
-    function safe(value){
-      return value || "";
-    }
+    box.innerHTML = "";
 
-    function carImage(fields){
-      if(fields.Image && Array.isArray(fields.Image) && fields.Image.length > 0){
-        return fields.Image[0].url;
-      }
+    records.forEach(record => {
+      const f = record.fields;
 
-      if(fields.Images && Array.isArray(fields.Images) && fields.Images.length > 0){
-        return fields.Images[0].url;
-      }
+      const image =
+        f.Image && f.Image[0] ? f.Image[0].url :
+        f.Photo && f.Photo[0] ? f.Photo[0].url :
+        "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200";
 
-      if(fields.Photo && Array.isArray(fields.Photo) && fields.Photo.length > 0){
-        return fields.Photo[0].url;
-      }
+      const card = document.createElement("div");
+      card.className = "card";
 
-      if(fields.image){
-        return fields.image;
-      }
+      card.innerHTML = `
+        <img src="${image}">
+        <div class="card-body">
+          <h3>${f.Year || ""} ${f.Make || ""} ${f.Model || ""}</h3>
+          <h4>${f.Price ? "$" + Number(f.Price).toLocaleString() : "Call for price"}</h4>
+          <p>${f.Miles ? Number(f.Miles).toLocaleString() + " miles" : ""}</p>
+          <p>${f.Description || ""}</p>
+          <a class="card-btn" href="tel:+17248886688">Contact Dealer</a>
+        </div>
+      `;
 
-      return "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200";
-    }
+      box.appendChild(card);
+    });
 
-    function renderCars(cars){
-      carsContainer.innerHTML = "";
+  } catch (err) {
+    box.innerHTML = "<p>Cars could not load from Airtable.</p>";
+  }
+}
 
-      if(!cars || cars.length === 0){
-        carsContainer.innerHTML = '<div class="empty">No cars available right now.</div>';
-        return;
-      }
-
-      cars.forEach(car => {
-        const f = car.fields || car;
-
-        const year = safe(f.Year);
-        const make = safe(f.Make);
-        const model = safe(f.Model);
-        const trim = safe(f.Trim);
-        const title = `${year} ${make} ${model} ${trim}`.trim();
-
-        const price = money(f.Price);
-        const miles = f.Miles ? Number(f.Miles).toLocaleString() + " miles" : "";
-        const vin = f.VIN ? "VIN: " + f.VIN : "";
-        const condition = safe(f.Condition);
-        const description = safe(f.Description);
-
-        const image = carImage(f);
-
-        const card = document.createElement("div");
-        card.className = "card";
-
-        card.innerHTML = `
-          <img src="${image}" alt="${title}">
-          <div class="card-content">
-            <h3>${title || "Vehicle"}</h3>
-            <div class="price">${price}</div>
-            <div class="info">
-              ${miles ? miles + "<br>" : ""}
-              ${condition ? condition + "<br>" : ""}
-              ${vin ? vin + "<br>" : ""}
-              ${description ? description : ""}
-            </div>
-            <a class="contact-btn" href="tel:+14120000000">Contact Dealer</a>
-          </div>
-        `;
-
-        carsContainer.appendChild(card);
-      });
-    }
-
-    async function loadCars(){
-      try{
-        const response = await fetch("/.netlify/functions/cars");
-
-        if(!response.ok){
-          throw new Error("Airtable connection error");
-        }
-
-        const data = await response.json();
-
-        const cars = data.records || data.cars || data;
-
-        renderCars(cars);
-      }catch(error){
-        carsContainer.innerHTML = `
-          <div class="error">
-            Cars could not load from Airtable.<br>
-            Check Netlify Function: /.netlify/functions/cars
-          </div>
-        `;
-        console.error(error);
-      }
-    }
-
-    loadCars();
-  </script>
+loadCars();
+</script>
 
 </body>
 </html>
