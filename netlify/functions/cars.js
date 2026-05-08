@@ -1,42 +1,27 @@
+const Airtable = require("airtable");
+
+const base = new Airtable({
+  apiKey: process.env.AIRTABLE_TOKEN,
+}).base(process.env.AIRTABLE_BASE_ID);
+
 exports.handler = async function () {
-  const token = process.env.AIRTABLE_TOKEN;
-  const baseId = process.env.AIRTABLE_BASE_ID;
-  const tableName = process.env.AIRTABLE_TABLE_NAME || "CARS";
+  try {
+    const records = await base(process.env.AIRTABLE_TABLE_NAME)
+      .select({
+        maxRecords: 50,
+        view: "Grid view",
+      })
+      .all();
 
-  if (!token || !baseId || !tableName) {
-    return {
-      statusCode: 500,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        error: "Missing environment variables"
-      })
-    };
-  }
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ records }),
+    };
 
-  try {
-    const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
-
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-
-    const data = await response.json();
-
-    return {
-      statusCode: response.status,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    };
-
-  } catch (error) {
-    return {
-      statusCode: 500,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        error: "Failed to load cars"
-      })
-    };
-  }
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message }),
+    };
+  }
 };
