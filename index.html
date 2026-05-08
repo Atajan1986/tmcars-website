@@ -2,141 +2,283 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TMCARS LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TMCARS LLC | Used Cars & Auto Service</title>
 
   <style>
-    body{
-      margin:0;
-      font-family:Arial;
-      background:#f4f4f4;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#111}
+    a{text-decoration:none;color:inherit}
 
-    header{
-      background:#111827;
+    .hero{
+      min-height:520px;
+      background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+      url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000");
+      background-size:cover;
+      background-position:center;
       color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       text-align:center;
-      padding:40px 20px;
+      padding:30px;
     }
 
-    header h1{
-      font-size:48px;
-      margin:0;
-    }
+    .hero-box{max-width:900px}
+    .hero h1{font-size:64px;margin-bottom:15px;letter-spacing:1px}
+    .hero p{font-size:24px;margin-bottom:30px;color:#e5e7eb}
 
-    header p{
-      font-size:20px;
+    .hero-buttons{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      padding:15px 26px;
+      border-radius:10px;
+      background:#0f766e;
+      color:white;
+      font-weight:bold;
+      display:inline-block;
     }
+    .btn.dark{background:#111827}
 
-    .container{
-      max-width:1200px;
-      margin:auto;
-      padding:30px 20px;
-    }
+    .section{max-width:1200px;margin:auto;padding:55px 20px}
+    .section-title{text-align:center;font-size:40px;margin-bottom:15px}
+    .section-subtitle{text-align:center;color:#666;margin-bottom:40px;font-size:18px}
 
     .cars{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:20px;
+      gap:25px;
     }
 
     .card{
       background:white;
-      border-radius:14px;
+      border-radius:18px;
       overflow:hidden;
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
+      box-shadow:0 8px 25px rgba(0,0,0,.12);
+      transition:.25s;
     }
+    .card:hover{transform:translateY(-5px)}
 
     .card img{
       width:100%;
-      height:220px;
+      height:230px;
       object-fit:cover;
+      background:#ddd;
     }
 
-    .card-content{
-      padding:20px;
-    }
+    .card-content{padding:22px}
+    .card h3{font-size:24px;margin-bottom:10px}
+    .price{font-size:26px;font-weight:bold;color:#0f766e;margin-bottom:10px}
+    .info{color:#555;line-height:1.7;margin-bottom:16px}
 
-    .price{
-      color:#0f766e;
-      font-size:24px;
+    .contact-btn{
+      display:block;
+      width:100%;
+      text-align:center;
+      padding:14px;
+      background:#111827;
+      color:white;
+      border-radius:10px;
       font-weight:bold;
     }
 
-    button{
-      width:100%;
-      padding:12px;
-      border:none;
-      background:#111827;
-      color:white;
-      border-radius:8px;
-      font-size:16px;
-      cursor:pointer;
+    .services{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:22px;
+    }
+
+    .service{
+      background:white;
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 6px 20px rgba(0,0,0,.1);
+      text-align:center;
+    }
+
+    .service h3{margin-bottom:12px;font-size:24px}
+    .service p{color:#666;line-height:1.6}
+
+    .loading,.error,.empty{
+      text-align:center;
+      font-size:20px;
+      padding:40px;
+      color:#555;
     }
 
     footer{
-      background:white;
+      background:#111827;
+      color:white;
       text-align:center;
-      padding:30px;
-      margin-top:30px;
+      padding:45px 20px;
+      margin-top:40px;
+    }
+    footer h2{font-size:34px;margin-bottom:10px}
+    footer p{color:#d1d5db;margin:6px 0}
+
+    @media(max-width:600px){
+      .hero h1{font-size:42px}
+      .hero p{font-size:19px}
+      .section-title{font-size:32px}
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>TMCARS LLC</h1>
-  <p>Used Cars • Auto Service • Pittsburgh, PA</p>
-</header>
-
-<div class="container">
-
-  <h2>Available Cars</h2>
-
-  <div class="cars">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d">
-      <div class="card-content">
-        <h3>2015 Toyota Camry</h3>
-        <p class="price">$8,900</p>
-        <p>120,000 miles</p>
-        <p>Clean title, runs and drives good.</p>
-        <button>Contact Dealer</button>
+  <header class="hero">
+    <div class="hero-box">
+      <h1>TMCARS LLC</h1>
+      <p>Used Cars • Auto Service • Pittsburgh, Pennsylvania</p>
+      <div class="hero-buttons">
+        <a class="btn" href="#cars">View Cars</a>
+        <a class="btn dark" href="tel:+14120000000">Call Dealer</a>
       </div>
     </div>
+  </header>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2">
-      <div class="card-content">
-        <h3>2017 Honda Accord</h3>
-        <p class="price">$10,500</p>
-        <p>98,000 miles</p>
-        <p>Good condition, ready to drive.</p>
-        <button>Contact Dealer</button>
+  <section class="section" id="cars">
+    <h2 class="section-title">Available Cars</h2>
+    <p class="section-subtitle">Current inventory from TMCARS LLC</p>
+
+    <div id="carsContainer" class="cars">
+      <div class="loading">Loading cars from Airtable...</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">Professional automotive services</p>
+
+    <div class="services">
+      <div class="service">
+        <h3>Used Car Sales</h3>
+        <p>Quality used vehicles with dealer paperwork and professional support.</p>
+      </div>
+
+      <div class="service">
+        <h3>Auto Repair</h3>
+        <p>Diagnostics, maintenance, engine, transmission, suspension and electrical work.</p>
+      </div>
+
+      <div class="service">
+        <h3>Dealer Support</h3>
+        <p>Vehicle preparation, inspection, service records and customer support.</p>
       </div>
     </div>
+  </section>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
-      <div class="card-content">
-        <h3>2016 Hyundai Elantra</h3>
-        <p class="price">$6,900</p>
-        <p>135,000 miles</p>
-        <p>Affordable and fuel efficient.</p>
-        <button>Contact Dealer</button>
-      </div>
-    </div>
+  <footer>
+    <h2>TMCARS LLC</h2>
+    <p>Pittsburgh, Pennsylvania</p>
+    <p>Used Cars • Auto Service</p>
+    <p>Phone: +1 412-000-0000</p>
+  </footer>
 
-  </div>
-</div>
+  <script>
+    const carsContainer = document.getElementById("carsContainer");
 
-<footer>
-  <h2>Contact Us</h2>
-  <p>TMCARS LLC</p>
-  <p>Pittsburgh, Pennsylvania</p>
-</footer>
+    function money(value){
+      if(!value) return "Call for price";
+      return "$" + Number(value).toLocaleString();
+    }
+
+    function safe(value){
+      return value || "";
+    }
+
+    function carImage(fields){
+      if(fields.Image && Array.isArray(fields.Image) && fields.Image.length > 0){
+        return fields.Image[0].url;
+      }
+
+      if(fields.Images && Array.isArray(fields.Images) && fields.Images.length > 0){
+        return fields.Images[0].url;
+      }
+
+      if(fields.Photo && Array.isArray(fields.Photo) && fields.Photo.length > 0){
+        return fields.Photo[0].url;
+      }
+
+      if(fields.image){
+        return fields.image;
+      }
+
+      return "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200";
+    }
+
+    function renderCars(cars){
+      carsContainer.innerHTML = "";
+
+      if(!cars || cars.length === 0){
+        carsContainer.innerHTML = '<div class="empty">No cars available right now.</div>';
+        return;
+      }
+
+      cars.forEach(car => {
+        const f = car.fields || car;
+
+        const year = safe(f.Year);
+        const make = safe(f.Make);
+        const model = safe(f.Model);
+        const trim = safe(f.Trim);
+        const title = `${year} ${make} ${model} ${trim}`.trim();
+
+        const price = money(f.Price);
+        const miles = f.Miles ? Number(f.Miles).toLocaleString() + " miles" : "";
+        const vin = f.VIN ? "VIN: " + f.VIN : "";
+        const condition = safe(f.Condition);
+        const description = safe(f.Description);
+
+        const image = carImage(f);
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+          <img src="${image}" alt="${title}">
+          <div class="card-content">
+            <h3>${title || "Vehicle"}</h3>
+            <div class="price">${price}</div>
+            <div class="info">
+              ${miles ? miles + "<br>" : ""}
+              ${condition ? condition + "<br>" : ""}
+              ${vin ? vin + "<br>" : ""}
+              ${description ? description : ""}
+            </div>
+            <a class="contact-btn" href="tel:+14120000000">Contact Dealer</a>
+          </div>
+        `;
+
+        carsContainer.appendChild(card);
+      });
+    }
+
+    async function loadCars(){
+      try{
+        const response = await fetch("/.netlify/functions/cars");
+
+        if(!response.ok){
+          throw new Error("Airtable connection error");
+        }
+
+        const data = await response.json();
+
+        const cars = data.records || data.cars || data;
+
+        renderCars(cars);
+      }catch(error){
+        carsContainer.innerHTML = `
+          <div class="error">
+            Cars could not load from Airtable.<br>
+            Check Netlify Function: /.netlify/functions/cars
+          </div>
+        `;
+        console.error(error);
+      }
+    }
+
+    loadCars();
+  </script>
 
 </body>
 </html>
